@@ -7,16 +7,16 @@ function App() {
       <br />
       <Button
         bgColor="grey"
-        onButtonClick={(param) => {
-          console.log("J'ai clique sur ", param);
+        onButtonClick={() => {
+          console.log("J'ai clique sur OK");
         }}
       >
         OK
       </Button>
       <Button
         bgColor="green"
-        onButtonClick={(param) => {
-          console.log("J'ai clique sur ", param);
+        onButtonClick={() => {
+          console.log("J'ai clique sur Cancel");
         }}
       >
         <div>Cancel</div>
