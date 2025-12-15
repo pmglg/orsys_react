@@ -14,7 +14,7 @@ const Button = ({
   bgColor = "red",
   type = "button",
 }: IButtonProps) => {
-  console.log(children);
+  //console.log(children);
   return (
     <button
       type={type}

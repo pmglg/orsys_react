@@ -1,32 +1,32 @@
+import { useState } from "react";
 import Button from "../components/ui/Button/Button";
 
-function App() {
+const App: React.FC<undefined> = () => {
+  const [counter, setCounter] = useState(0);
   return (
-    <div>
-      Bonjour Paul
-      <br />
+    <div style={{ textAlign: "center" }}>
+      valeur de counter :{counter}
+      <hr />
       <Button
-        bgColor="grey"
-        onButtonClick={() => {
-          console.log("J'ai clique sur OK");
+        onButtonClick={ ()=> {
+          setCounter(counter - 1);
+          console.log(counter);
         }}
       >
-        OK
+        -1
       </Button>
       <Button
-        bgColor="green"
+        bgColor="skyblue"
         onButtonClick={() => {
-          console.log("J'ai clique sur Cancel");
+          setCounter(counter + 1);
+
+          console.log(counter);
         }}
       >
-        <div>Cancel</div>
-      </Button>
-      <Button>
-        <div>3eme </div>
-        <div>bouton</div>
+        +1
       </Button>
     </div>
   );
-}
+};
 
 export default App;
