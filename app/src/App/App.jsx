@@ -5,9 +5,14 @@ function App() {
     <div>
       Bonjour Paul
       <br />
-      <Button title="Benjamin"> </Button>
-      <Button title="ok"> </Button>
-      <Button title="cancel"> </Button>
+      <Button
+        title={"Benjamin"}
+        onButtonClick={(param) => {
+          console.log("J'ai clique sur ", param);
+        }}
+      />
+      <Button title="ok" />
+      <Button title="cancel" />
     </div>
   );
 }
