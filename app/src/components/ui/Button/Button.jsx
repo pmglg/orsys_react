@@ -1,16 +1,17 @@
 import React from "react";
+import style from './Button.module.css'
 
 const Button = ({ title, onButtonClick }) => {
   console.log(title);
   return (
-    <div
-      className="Button"
+    <button
+      className={style.Button}
       onClick={(evt) => {
         onButtonClick(title);
       }}
     >
       {title}
-    </div>
+    </button>
   );
 };
 
