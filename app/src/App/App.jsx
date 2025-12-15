@@ -7,6 +7,21 @@ function App() {
       <br />
       <Button
         title={"Benjamin"}
+        bgColor="grey"
+        onButtonClick={(param) => {
+          console.log("J'ai clique sur ", param);
+        }}
+      />
+      <Button
+        title={"Benjamin"}
+        bgColor="bluesky"
+        onButtonClick={(param) => {
+          console.log("J'ai clique sur ", param);
+        }}
+      />
+      <Button
+        title="Rouge"
+        bgColor="green"
         onButtonClick={(param) => {
           console.log("J'ai clique sur ", param);
         }}
