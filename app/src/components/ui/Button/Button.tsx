@@ -1,4 +1,4 @@
-import React, { type ReactElement } from "react";
+import React, { useEffect, useState, type ReactElement } from "react";
 import style from "./Button.module.css";
 
 interface IButtonProps {
@@ -14,19 +14,31 @@ const Button = ({
   bgColor = "red",
   type = "button",
 }: IButtonProps) => {
-  //console.log(children);
+  const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+      setTimeout(()=> {setIsClicked(false)}, 200) //versus setInterval qui se repete
+    
+    return () => {}
+
+  }, [isClicked])
+
+  //console.log(isClicked);
   return (
     <button
       type={type}
-      className={style.Button} // force le style du fichier css
+      className={`${style.Button}${isClicked ? ` ${style.clicked}` : ""}`} 
       style={{ backgroundColor: bgColor }}
       onClick={() => {
+        setIsClicked(true);
         if (onButtonClick) {
           onButtonClick();
         }
       }}
     >
       {children}
+      <br/>
+      {}
     </button>
   );
 };

@@ -11,8 +11,14 @@
   background-color: skyblue;
   color: white;
 }
+
 .Button:hover {
   box-shadow: 15px 15px 15px grey;
 
   border: 1px solid #afafaf;
+}
+
+.Button.clicked {
+  box-shadow: 5px 5px 5px grey;
+  transform: translate(4px);
 }

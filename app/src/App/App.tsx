@@ -1,8 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/ui/Button/Button";
 
-const App: React.FC<undefined> = () => {
-  const [counter, setCounter] = useState(0);
+const App: React.FC = () => {
+  const [counter, setCounter] = useState(-100);
+  useEffect(()=>{
+    console.log('didMount');
+    setCounter(0);
+    return () =>  {
+      //ComponentWillUnmount
+    };
+  },[]);
+
+  useEffect(() => {
+    console.log('counter effect', counter)
+  }, [counter]);
+
   return (
     <div style={{ textAlign: "center" }}>
       valeur de counter :{counter}
@@ -18,7 +30,7 @@ const App: React.FC<undefined> = () => {
       <Button
         bgColor="skyblue"
         onButtonClick={() => {
-          setCounter(counter + 1);
+          setCounter(counter + 9);
 
           console.log(counter);
         }}
