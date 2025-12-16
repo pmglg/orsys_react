@@ -9,7 +9,7 @@ interface IFlexH3GrowState {
   value?: undefined;
 }
 const FlexH3Grow: React.FC<IFlexH3GrowProps> = ({
-  children = "Template Name Composant",
+  children = "FlexH3GrowProps",
 }) => {
   const [state, setState] = useState<IFlexH3GrowState>({});
 

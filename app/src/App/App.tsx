@@ -1,42 +1,25 @@
-import { useEffect, useState } from "react";
-import Button from "../components/ui/Button/Button";
+import { emptyMeme, MemeSVGViewer } from "orsys-tjs-meme";
+import MemeForm from "../components/functionnal/MemeForm/MemeForm";
+import FlexH3Grow from "../components/layout/FlexH3Grow/FlexH3Grow";
+import FlexV1Grow from "../components/layout/FlexV1Grow/FlexV1Grow";
+import Footer from "../components/ui/Footer/Footer";
+import Header from "../components/ui/Header/Header";
+import Navbar from "../components/ui/Navbar/Navbar";
 
 const App: React.FC = () => {
-  const [counter, setCounter] = useState(-100);
-  useEffect(()=>{
-    console.log('didMount');
-    setCounter(0);
-    return () =>  {
-      //ComponentWillUnmount
-    };
-  },[]);
-
-  useEffect(() => {
-    console.log('counter effect', counter)
-  }, [counter]);
 
   return (
-    <div style={{ textAlign: "center" }}>
-      valeur de counter :{counter}
-      <hr />
-      <Button
-        onButtonClick={ ()=> {
-          setCounter(counter - 1);
-          console.log(counter);
-        }}
-      >
-        -1
-      </Button>
-      <Button
-        bgColor="skyblue"
-        onButtonClick={() => {
-          setCounter(counter + 9);
+    <div className="App">
+      <FlexH3Grow>
+        <Header />
+        <Navbar />
+        <FlexV1Grow>
+          <MemeSVGViewer meme={emptyMeme} image={undefined} basePath="" />
+          <MemeForm />
+        </FlexV1Grow>
+        <Footer></Footer>
+      </FlexH3Grow>
 
-          console.log(counter);
-        }}
-      >
-        +1
-      </Button>
     </div>
   );
 };

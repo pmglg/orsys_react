@@ -9,7 +9,7 @@ interface IMemeSvgViewerState {
   value?: undefined;
 }
 const MemeSvgViewer: React.FC<IMemeSvgViewerProps> = ({
-  children = "Template Name Composant",
+  children = "Meme Svg Viewer Composant",
 }) => {
   const [state, setState] = useState<IMemeSvgViewerState>({});
 

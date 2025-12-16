@@ -9,7 +9,7 @@ interface IFlexV1GrowState {
   value?: undefined;
 }
 const FlexV1Grow: React.FC<IFlexV1GrowProps> = ({
-  children = "Template Name Composant",
+  children = "Flex V1GrowState Composant",
 }) => {
   const [state, setState] = useState<IFlexV1GrowState>({});
 
