@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./MemeForm.module.css";
-import type { IMemeFormProps } from "./MemeForm.interface";
 import Button from "../../ui/Button/Button";
+import type { IMemeFormProps } from "./MemeForm.interface";
 
-const MemeForm: React.FC<IMemeFormProps> = ({ style, images, meme, onMemeChange }) => {
+//const initialState = {};
 
+const MemeForm: React.FC<IMemeFormProps > = ({ style,images, meme, onMemeChange }) => {
   const onNumberChange = (
     evt: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -21,7 +22,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({ style, images, meme, onMemeChange 
       <form
         onSubmit={(evt) => {
           evt.preventDefault();
-          //onMemeChange(current);
+        //  onMemeChange(current);
         }}
       >
         <label htmlFor="titre">
