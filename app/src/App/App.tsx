@@ -6,26 +6,39 @@ import Footer from "../components/ui/Footer/Footer";
 import Header from "../components/ui/Header/Header";
 import Navbar from "../components/ui/Navbar/Navbar";
 import { useEffect, useState } from "react";
+import { REST_API_RESSOURCES, REST_API_URL } from "../config/constantes";
 
 const App: React.FC = () => {
   const [images, setImages] = useState<Array<ImageInterface>>([]);
+  const [current, setCurrent] = useState(emptyMeme);
 
   useEffect(() => {
-    fetch("http://localhost:5629/images")
+    fetch(`${REST_API_URL}${REST_API_RESSOURCES.images}`)
       .then((r) => r.json())
       .then((imgs) => setImages(imgs));
   }, []);
 
   return (
     <>
-      <div>images:{JSON.stringify(images)}</div>
+      {/* la galère pour un commentaire */}
       <div className="App">
         <FlexH3Grow>
           <Header />
           <Navbar />
           <FlexV1Grow>
-            <MemeSVGViewer meme={emptyMeme} image={undefined} basePath="" />
-            <MemeForm />
+            <MemeSVGViewer
+              meme={current}
+              image={images.find((item) => item.id === current.imageId)}
+              basePath=""
+            />
+
+            <MemeForm
+              meme={current}
+              images={images}
+              onMemeChange={(meme) => {
+                setCurrent(meme);
+              }}
+            />
           </FlexV1Grow>
           <Footer></Footer>
         </FlexH3Grow>
